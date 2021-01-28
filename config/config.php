@@ -43,10 +43,11 @@ foreach ($saml2auth->metadataentities as $metadataurl => $idpentities) {
 }
 
 $config = array(
-    'baseurlpath'       => $wwwroot . '/auth/saml2/sp/',
+    'baseurlpath'       => $wwwroot . ':8080/auth/saml2/sp/',
     'certdir'           => $saml2auth->get_saml2_directory() . '/',
     'debug'             => $saml2auth->config->debug ? true : false,
-    'logging.level'     => $saml2auth->config->debug ? SimpleSAML\Logger::DEBUG : SimpleSAML\Logger::ERR,
+    // 'logging.level'     => $saml2auth->config->debug ? SimpleSAML\Logger::DEBUG : SimpleSAML\Logger::ERR,
+    'logging.level'     => 4,
     'logging.handler'   => $saml2auth->config->logtofile ? 'file' : 'errorlog',
     'loggingdir'        => $saml2auth->config->logdir,
     'logging.logfile'   => 'simplesamlphp.log',
